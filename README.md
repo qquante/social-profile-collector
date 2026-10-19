@@ -31,3 +31,7 @@ Source-specific scripts contain original investigation defaults and live connect
 ## License
 
 No open-source license has been granted. Redistribution terms remain to be defined.
+
+## Usage
+
+[Installation and commands](docs/usage.md).
