@@ -92,7 +92,7 @@ def testar_conexao():
         print("\nPara iniciar o monitor, execute:")
         print("  py monitor.py")
         print("  ou")
-        print("  MONITOR.bat")
+        print("  python monitor.py")
         return True
     else:
         print("⚠️  ATENÇÃO: Conexão com problemas")

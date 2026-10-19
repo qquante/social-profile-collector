@@ -131,7 +131,7 @@ def testar_api():
     print("\nPara iniciar:")
     print("  py monitor_onchain.py")
     print("  ou")
-    print("  MONITOR_ONCHAIN.bat")
+    print("  python monitor_onchain.py")
     print()
     
     return True

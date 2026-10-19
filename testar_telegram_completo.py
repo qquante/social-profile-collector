@@ -63,7 +63,7 @@ also watching 0xabcdefabcdefabcdefabcdefabcdefabcdefabcd'''
         print("  1. Mensagem de teste")
         print("  2. Post simulado com 2 contract addresses")
         print("\nAgora você pode usar:")
-        print("  MONITOR.bat - Para monitorar posts do @lauki")
+        print("  python monitor.py - Para monitorar posts do @lauki")
     else:
         print("\n⚠️  Houve um problema no envio do post")
         print(f"   Erro: {resultado}")
