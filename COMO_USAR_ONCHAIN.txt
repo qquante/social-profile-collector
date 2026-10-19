@@ -1,0 +1,162 @@
+========================================
+MONITOR ON-CHAIN - BASE NETWORK
+========================================
+
+🎯 O QUE FAZ:
+-------------
+Monitora um contrato na Base e alerta quando ele
+COMPRA TOKENS NOVOS (recebe tokens ERC-20)
+
+
+🚀 COMO USAR:
+-------------
+
+1. TESTE A API PRIMEIRO
+   Execute: TESTAR_BASESCAN.bat
+   
+   Isso verifica:
+   ✓ Se consegue conectar no BaseScan
+   ✓ Se consegue buscar transações
+   ✓ Se consegue buscar token transfers
+   ✓ Se a API está funcionando
+
+
+2. INICIE O MONITOR
+   Execute: MONITOR_ONCHAIN.bat
+   
+   Vai perguntar:
+   - Contrato (Enter = usar padrão)
+   - Intervalo em segundos (Enter = 30s)
+
+
+3. DEIXE RODANDO
+   O monitor vai ficar verificando e quando
+   detectar compra de token novo:
+   
+   🔊 Apita 8x (888 Hz por 888 ms)
+   📊 Mostra detalhes do token
+   🔗 Links para BaseScan e DEXScreener
+   💾 Salva no histórico
+
+
+========================================
+CONTRATO PADRÃO:
+========================================
+
+0xFb653a4061cE35b66e2Ba090Cf1Fabe32f294079
+
+Você pode monitorar qualquer contrato Base!
+Basta colar o endereço quando o monitor perguntar.
+
+
+========================================
+O QUE É DETECTADO:
+========================================
+
+✅ Compras de tokens (contrato recebe ERC-20)
+✅ Token novo = token que não vimos antes
+✅ Detalhes: nome, símbolo, quantidade, TX
+
+❌ NÃO detecta:
+   - Vendas (contrato envia tokens)
+   - Transações normais de ETH
+   - NFTs (só ERC-20)
+
+
+========================================
+EXEMPLO DE ALERTA:
+========================================
+
+🚨 COMPRA DE TOKEN DETECTADA! 🚨
+
+💰 TOKEN: Based Shiba (BSHIBA)
+📊 QUANTIDADE: 1,000,000.00
+📍 ENDEREÇO: 0x1234...5678
+⏰ TIMESTAMP: 2026-01-31 17:50:00
+🔗 TX HASH: 0xabcd...ef01
+
+🔍 LINKS:
+   BaseScan TX: https://basescan.org/tx/...
+   BaseScan Token: https://basescan.org/token/...
+   DEXScreener: https://dexscreener.com/base/...
+
+🔊 APITANDO 8x...
+
+
+========================================
+VER HISTÓRICO:
+========================================
+
+Para ver todas as compras detectadas:
+Execute: VER_HISTORICO.bat
+
+Isso mostra:
+✓ Todas as compras
+✓ Detalhes de cada token
+✓ Quando foi comprado
+✓ Quando foi detectado
+✓ Links para verificar
+
+
+========================================
+ARQUIVOS CRIADOS:
+========================================
+
+onchain_cache.json
+  - Salva última TX vista
+  - Lista de tokens já conhecidos
+  - Você pode deletar para "resetar"
+
+historico_compras.json
+  - Histórico de TODAS as compras
+  - Não delete se quiser manter histórico!
+
+
+========================================
+DICAS:
+========================================
+
+1. Use intervalo de 30-60s
+   (BaseScan tem rate limit)
+
+2. Não monitore múltiplos contratos ao mesmo
+   tempo (cada um precisa de sua própria instância)
+
+3. O monitor detecta apenas tokens NOVOS
+   (que ele não viu antes)
+
+4. Na primeira execução, ele marca todos os
+   tokens atuais como "conhecidos"
+
+5. Para monitorar tudo de novo:
+   Delete: onchain_cache.json
+
+
+========================================
+PROBLEMAS COMUNS:
+========================================
+
+❌ "API retornou erro"
+   → BaseScan pode estar com problema
+   → Tente aumentar o intervalo
+   → Verifique se o contrato está correto
+
+❌ "Nenhuma transação encontrada"
+   → Contrato pode não ter transações ainda
+   → Verifique o endereço no BaseScan
+
+❌ "Rate limit exceeded"
+   → Aumente o intervalo para 60s ou mais
+   → BaseScan limita requisições
+
+
+========================================
+LINKS ÚTEIS:
+========================================
+
+BaseScan: https://basescan.org
+DEXScreener: https://dexscreener.com
+Base Network: https://base.org
+
+
+========================================

@@ -1,0 +1,61 @@
+========================================
+COMO RODAR O TESTE - MoltX Sniper
+========================================
+
+🔥 OPÇÃO 1 (SUPER RÁPIDA - FAZ TUDO):
+--------------------------------------
+Execute apenas: INSTALAR_E_RODAR.bat
+
+Isso vai:
+✓ Instalar o PIP automaticamente
+✓ Instalar o requests
+✓ Rodar o teste
+✓ Mostrar os resultados
+
+
+OPÇÃO 2 (Se precisa instalar pip):
+-----------------------------------
+1. Execute: INSTALAR_PIP.bat
+2. Depois execute: py quick_test.py
+
+
+OPÇÃO 3 (Com VENV):
+-------------------
+Execute: RODAR.bat
+
+
+OPÇÃO 4 (Sem VENV):
+-------------------
+Execute: RODAR_SIMPLES.bat
+
+
+OPÇÃO 5 (Manual - PowerShell):
+-------------------------------
+1. Baixe o pip:
+   Invoke-WebRequest -Uri https://bootstrap.pypa.io/get-pip.py -OutFile get-pip.py
+
+2. Instale o pip:
+   py get-pip.py
+
+3. Instale requests:
+   py -m pip install requests
+
+4. Rode o teste:
+   py quick_test.py
+
+
+========================================
+RESULTADO
+========================================
+
+O teste vai:
+✓ Tentar acessar a API do MoltX
+✓ Tentar pegar dados do @lauki
+✓ Salvar a página HTML para análise
+✓ Mostrar no console o que funcionou
+
+Arquivos gerados:
+- lauki_page_test.html (página completa)
+- Saída no console mostrando os dados
+
+========================================

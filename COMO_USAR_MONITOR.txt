@@ -1,0 +1,77 @@
+========================================
+COMO USAR O MONITOR - MoltX Sniper
+========================================
+
+🔊 PASSO 1: TESTAR O APITO
+--------------------------
+Execute: TESTAR_APITO.bat
+
+Isso vai apitar 8 vezes para você ouvir como vai ser.
+Se não ouvir nada, pode ser que:
+- Volume do PC está baixo
+- Alto-falantes desligados
+- Placa de som com problema
+
+
+🎯 PASSO 2: INICIAR O MONITOR
+------------------------------
+Execute: MONITOR.bat
+
+O monitor vai perguntar o intervalo:
+- Aperte ENTER = verifica a cada 30 segundos
+- Digite 60 = verifica a cada 60 segundos (1 min)
+- Digite 120 = verifica a cada 2 minutos
+- etc...
+
+
+🚨 O QUE ACONTECE QUANDO TEM POST NOVO:
+----------------------------------------
+1. Apita 8x (BEEEEEP 888 Hz por 888 ms cada)
+2. Mostra no terminal:
+   - ID do post
+   - Tempo do post (ex: "23m")
+   - URL do post
+   - Preview do conteúdo
+
+3. Salva o ID do post para não alertar de novo
+
+
+⏸️  COMO PARAR O MONITOR:
+--------------------------
+Pressione: Ctrl + C
+
+O monitor vai parar e mostrar estatísticas:
+- Total de verificações feitas
+- Último post conhecido
+
+
+📁 ARQUIVOS CRIADOS:
+--------------------
+- ultimo_post.json = Armazena o último post visto
+  (você pode deletar esse arquivo para "resetar")
+
+
+💡 DICAS:
+---------
+1. Use intervalo de 30-60s para não sobrecarregar
+2. Deixe o terminal aberto e minimizado
+3. O monitor salva o progresso, pode parar e iniciar depois
+4. Se deletar ultimo_post.json, ele vai considerar
+   o próximo post como "novo"
+
+
+🐛 PROBLEMAS COMUNS:
+--------------------
+❌ "ModuleNotFoundError: No module named 'requests'"
+   → Execute: py -m pip install requests
+
+❌ Não apita
+   → Verifique volume do PC
+   → Execute TESTAR_APITO.bat para testar
+
+❌ "Erro ao conectar"
+   → Verifique sua internet
+   → Site moltx.io pode estar fora do ar
+
+
+========================================

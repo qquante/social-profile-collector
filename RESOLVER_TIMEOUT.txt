@@ -1,0 +1,87 @@
+========================================
+RESOLVENDO PROBLEMA DE TIMEOUT
+========================================
+
+❌ Erro que você está vendo:
+"HTTPSConnectionPool(host='moltx.io', port=443): Read timed out"
+
+Isso significa: o site está demorando muito para responder
+
+
+🔧 SOLUÇÕES:
+
+1. TESTE SUA CONEXÃO PRIMEIRO
+   ------------------------------
+   Execute: TESTAR_CONEXAO.bat
+   
+   Isso vai:
+   ✓ Testar se consegue conectar no moltx.io
+   ✓ Medir a velocidade de resposta
+   ✓ Verificar se consegue extrair posts
+   ✓ Recomendar se pode usar o monitor
+
+
+2. ATUALIZE O MONITOR
+   -------------------
+   O monitor já foi atualizado com:
+   ✓ Timeout maior (10s → 30s)
+   ✓ Sistema de retry (3 tentativas)
+   ✓ Melhor tratamento de erros
+   ✓ Feedback mais claro
+   
+   Execute novamente: MONITOR.bat
+
+
+3. AJUSTE O INTERVALO
+   --------------------
+   Use um intervalo MAIOR entre verificações:
+   
+   Em vez de 5 segundos, use 60 segundos (1 minuto)
+   ou 120 segundos (2 minutos)
+   
+   Quando o monitor perguntar, digite: 60
+
+
+4. POSSÍVEIS CAUSAS DO TIMEOUT
+   ----------------------------
+   ⚠️  Internet lenta ou instável
+   ⚠️  Site moltx.io sobrecarregado
+   ⚠️  Firewall/Antivirus bloqueando
+   ⚠️  VPN interferindo
+   ⚠️  Muitas requisições (por isso aumentar intervalo)
+
+
+5. TESTE MANUAL
+   -------------
+   Abra o navegador e acesse:
+   https://moltx.io/lauki
+   
+   Se a página demorar muito para carregar,
+   o problema é com o site ou sua internet.
+
+
+6. ALTERNATIVA: USE O CACHE
+   -------------------------
+   Se o monitor conseguiu pegar pelo menos 1 vez,
+   ele salvou o último post em: ultimo_post.json
+   
+   Isso significa que mesmo com timeouts,
+   quando conseguir conectar vai detectar posts novos.
+
+
+========================================
+ORDEM RECOMENDADA:
+========================================
+
+1. Execute: TESTAR_CONEXAO.bat
+2. Se der OK → Execute: MONITOR.bat
+3. Quando perguntar intervalo, digite: 60
+4. Deixe rodando
+
+Se continuar com timeout:
+- Aguarde alguns minutos
+- Teste novamente
+- Ou use intervalo maior (120 ou 180)
+
+
+========================================

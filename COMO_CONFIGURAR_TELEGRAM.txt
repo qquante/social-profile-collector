@@ -1,0 +1,117 @@
+========================================
+COMO CONFIGURAR TELEGRAM
+========================================
+
+✅ JÁ ESTÁ CONFIGURADO!
+
+Seu bot já está pronto para usar:
+- Token: [REMOVED_CREDENTIAL]
+- Chat ID: -5240477484
+
+
+🧪 TESTE PRIMEIRO:
+------------------
+Execute: TESTAR_TELEGRAM_COMPLETO.bat
+
+Isso vai:
+1. Testar se o bot está online
+2. Enviar mensagem de teste
+3. Enviar post simulado com CA
+
+
+🚀 DEPOIS RODE O MONITOR:
+-------------------------
+Execute: MONITOR.bat
+
+O monitor vai:
+✅ Detectar posts novos do @lauki
+✅ Enviar para o Telegram (formatado)
+✅ Detectar CAs automaticamente
+✅ Apitar 8x localmente (opcional)
+
+
+📱 EXEMPLO DE MENSAGEM NO TELEGRAM:
+------------------------------------
+
+🚨 NOVO POST - @lauki
+
+━━━━━━━━━━━━━━━━━━━━━━━━
+📄 CONTEÚDO:
+
+just bought $AGENT at 0x1234...
+
+trading with 50k usdc
+
+━━━━━━━━━━━━━━━━━━━━━━━━
+🔗 CONTRACT ADDRESS DETECTADO:
+
+📍 0x1234567890123456789012345678901234567890
+
+🔍 Ver no BaseScan:
+→ https://basescan.org/address/0x123...
+
+📈 Ver no DEXScreener:
+→ https://dexscreener.com/base/0x123...
+
+━━━━━━━━━━━━━━━━━━━━━━━━
+⏰ Postado há: 2m
+🔗 Ver post: https://moltx.io/post/...
+
+
+🔧 CONFIGURAÇÕES:
+-----------------
+
+Edite: config_telegram.py
+
+ENVIAR_APITO_LOCAL = True
+  → True = apita E envia telegram
+  → False = só envia telegram (sem apito)
+
+ENVIAR_PREVIEW_LINK = True
+  → True = mostra preview de links
+  → False = só link texto
+
+
+🎯 FUNCIONALIDADES:
+-------------------
+
+✅ Mensagem formatada com negrito
+✅ Emojis para identificação rápida
+✅ Detecção automática de CAs (0x...)
+✅ Links clicáveis para BaseScan
+✅ Links clicáveis para DEXScreener
+✅ Múltiplos CAs no mesmo post
+✅ Conteúdo completo do post
+
+
+⚠️  IMPORTANTE:
+---------------
+
+- O bot precisa estar no grupo/canal
+- Se o Chat ID for negativo = grupo
+- Se for positivo = chat privado
+- Teste ANTES de usar o monitor!
+
+
+📖 RESOLUÇÃO DE PROBLEMAS:
+--------------------------
+
+❌ "Unauthorized"
+   → Token do bot está errado
+   → Recrie o bot no @BotFather
+
+❌ "Chat not found"
+   → Chat ID está errado
+   → Bot não foi adicionado ao grupo
+   → Use @userinfobot para pegar o ID
+
+❌ "Bot was blocked by the user"
+   → Desbloqueie o bot no Telegram
+   → Inicie conversa com /start
+
+❌ Mensagem não formatada
+   → Problema com escape de caracteres
+   → Verifique telegram_bot.py
+
+
+========================================
