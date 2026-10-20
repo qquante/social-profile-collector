@@ -1,37 +1,78 @@
 # Social Profile Collector
 
+**HTTP/browser collection, structured social records and optional chain enrichment.**
+
+![Language: Python](https://img.shields.io/badge/Language-Python-3776AB?style=flat-square&logo=python) ![Browser: Selenium](https://img.shields.io/badge/Browser-Selenium-555555?style=flat-square) [![License: MIT](https://img.shields.io/badge/License-MIT-555555?style=flat-square)](LICENSE)
+
+[Overview](#overview) · [Quickstart](#quickstart) · [Example](#example) · [Validation](#validation) · [Documentation](#documentation)
+
+## Overview
+
 A Python collection and monitoring toolkit combining profile/API parsing, browser automation and optional on-chain enrichment.
 
-## Features
+**Stack:** Python · requests · BeautifulSoup · lxml · Selenium · websocket-client
 
-- HTTP and browser collectors support different page delivery modes.
-- Profile/post parsing extracts structured observations.
-- Optional chain and notification scripts enrich collected events.
+## Select a collector for the delivery mode
 
-## Stack
+| Component | Behavior |
+| --- | --- |
+| HTTP | requests/BeautifulSoup/lxml paths parse directly delivered content. |
+| Browser | Selenium handles browser-dependent collection paths. |
+| Enrichment | Optional chain and notification scripts extend collected observations. |
 
-Python · requests · BeautifulSoup · lxml · Selenium · websocket-client
+## Processing path
 
-Local JSON/HTML files record collected output. Previous profile snapshots, browser data and copied virtual-environment packages are excluded.
-
-## Getting started
-
-Install requirements.txt in a new virtual environment. Selenium/browser setup is optional and separate. Begin with parser fixtures before any live collection.
-
-## How it works
-
-```text
-Configured profile source → HTTP/browser collector → structured local records → optional monitoring/enrichment
+```mermaid
+flowchart LR
+  N0["Configured profile source"]
+  N1["HTTP/browser collector"]
+  N2["structured local records"]
+  N3["optional monitoring/enrichment"]
+N0 --> N1 --> N2 --> N3
 ```
 
-## Current limitations
+## Quickstart
 
-Source-specific scripts contain original investigation defaults and live connectivity checks. They were not run. No Chrome profile, private session, Telegram send or external scraping session was used.
+```console
+python -m venv .venv
+# Activate .venv, then:
+python -m pip install -r requirements.txt
+python -m py_compile moltx_scraper.py moltx_browser_scraper.py extrair_dados.py
+```
 
-## License
+The commands above install prerequisites or run the specified offline checks. Live collection, cloud operations, messaging and trading are separate operational steps when present.
+
+## Example
+
+**Inspect the workflow**
+
+Use [the usage guide](docs/usage.md) to identify the appropriate collector. Inspect parser inputs and local JSON/HTML outputs before configuring a source. Browser state, downloaded profile snapshots and optional notification/chain enrichment are separate from the parser contract.
+
+## Configuration and storage
+
+Python requirements are listed in [requirements.txt](requirements.txt). Selenium needs a separate browser runtime. [.env.example](.env.example) names optional Telegram and RPC configuration without distributing sessions.
+
+## Repository guide
+
+| Location | Responsibility |
+| --- | --- |
+| [moltx_scraper.py](moltx_scraper.py) | HTTP collection |
+| [moltx_browser_scraper.py](moltx_browser_scraper.py) | Browser collection |
+| [extrair_dados.py](extrair_dados.py) | Structured extraction |
+| [docs/usage.md](docs/usage.md) | Installation and commands |
+
+## Validation
+
+The quickstart lists the declared checks. No passing CI or coverage claim is implied by the technology badges.
+
+## Scope and operational boundaries
+
+Source-specific scripts retain investigation defaults and live connectivity paths. Syntax checks do not validate current selectors or authenticated source access. Keep browser profiles and private records outside the repository.
+
+## Documentation
+
+- [Installation and commands](docs/usage.md)
+
+## License and attribution
 
 Project-authored source code is licensed under the [MIT License](LICENSE). Third-party components and datasets retain their respective rights and licenses.
-
-## Usage
-
-[Installation and commands](docs/usage.md).
