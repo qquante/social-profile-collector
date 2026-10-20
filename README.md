@@ -1,78 +1,35 @@
 # Social Profile Collector
 
-**HTTP/browser collection, structured social records and optional chain enrichment.**
-
 ![Language: Python](https://img.shields.io/badge/Language-Python-3776AB?style=flat-square&logo=python) ![Browser: Selenium](https://img.shields.io/badge/Browser-Selenium-555555?style=flat-square) [![License: MIT](https://img.shields.io/badge/License-MIT-555555?style=flat-square)](LICENSE)
 
-[Overview](#overview) · [Quickstart](#quickstart) · [Example](#example) · [Validation](#validation) · [Documentation](#documentation)
+A MoltX-oriented collection workspace combining direct HTTP attempts, HTML parsing, Selenium-based browser collection and optional on-chain enrichment.
 
-## Overview
+The scripts reflect several ways of investigating the same source. They are not all interchangeable commands: a profile request, a rendered-page scrape and a transaction reader have different prerequisites and outputs.
 
-A Python collection and monitoring toolkit combining profile/API parsing, browser automation and optional on-chain enrichment.
+## Select the right entrypoint
 
-**Stack:** Python · requests · BeautifulSoup · lxml · Selenium · websocket-client
-
-## Select a collector for the delivery mode
-
-| Component | Behavior |
+| Task | Source |
 | --- | --- |
-| HTTP | requests/BeautifulSoup/lxml paths parse directly delivered content. |
-| Browser | Selenium handles browser-dependent collection paths. |
-| Enrichment | Optional chain and notification scripts extend collected observations. |
+| Try profile/post endpoints and HTML fallback | [moltx_scraper.py](moltx_scraper.py) |
+| Collect through a rendered browser | [moltx_browser_scraper.py](moltx_browser_scraper.py) |
+| Monitor source changes | [monitor.py](monitor.py) |
+| Read chain observations over HTTP / WebSocket | [monitor_onchain.py](monitor_onchain.py), [monitor_onchain_wss.py](monitor_onchain_wss.py) |
+| Extract/analyze retained data | [extrair_dados.py](extrair_dados.py), [analisar_transacoes.py](analisar_transacoes.py) |
 
-## Processing path
+The direct scraper tries multiple endpoint shapes and records whether a response is JSON or HTML. That fallback strategy describes the implementation, not confirmation that those endpoint variants are supported today. Some diagnostic scripts retain local HTML/JSON for further inspection.
 
-```mermaid
-flowchart LR
-  N0["Configured profile source"]
-  N1["HTTP/browser collector"]
-  N2["structured local records"]
-  N3["optional monitoring/enrichment"]
-N0 --> N1 --> N2 --> N3
-```
-
-## Quickstart
+## Environment
 
 ```console
 python -m venv .venv
-# Activate .venv, then:
 python -m pip install -r requirements.txt
 python -m py_compile moltx_scraper.py moltx_browser_scraper.py extrair_dados.py
 ```
 
-The commands above install prerequisites or run the specified offline checks. Live collection, cloud operations, messaging and trading are separate operational steps when present.
+Read [docs/usage.md](docs/usage.md) for operational commands and [.env.example](.env.example) for inputs. Creating an `.env` alone does not guarantee every configuration module loads it. Selenium needs its browser/driver setup; RPC enrichment needs separately configured providers.
 
-## Example
+Telegram entrypoints can send real messages. `quick_test.py` and `testar_*` files include manual integration diagnostics, so they are not an unattended offline suite. Browser state, profile snapshots and credentials should remain local; this checkout does not prove present source compatibility.
 
-**Inspect the workflow**
+**Technology:** Python · requests · BeautifulSoup · lxml · Selenium · websocket-client
 
-Use [the usage guide](docs/usage.md) to identify the appropriate collector. Inspect parser inputs and local JSON/HTML outputs before configuring a source. Browser state, downloaded profile snapshots and optional notification/chain enrichment are separate from the parser contract.
-
-## Configuration and storage
-
-Python requirements are listed in [requirements.txt](requirements.txt). Selenium needs a separate browser runtime. [.env.example](.env.example) names optional Telegram and RPC configuration without distributing sessions.
-
-## Repository guide
-
-| Location | Responsibility |
-| --- | --- |
-| [moltx_scraper.py](moltx_scraper.py) | HTTP collection |
-| [moltx_browser_scraper.py](moltx_browser_scraper.py) | Browser collection |
-| [extrair_dados.py](extrair_dados.py) | Structured extraction |
-| [docs/usage.md](docs/usage.md) | Installation and commands |
-
-## Validation
-
-The quickstart lists the declared checks. No passing CI or coverage claim is implied by the technology badges.
-
-## Scope and operational boundaries
-
-Source-specific scripts retain investigation defaults and live connectivity paths. Syntax checks do not validate current selectors or authenticated source access. Keep browser profiles and private records outside the repository.
-
-## Documentation
-
-- [Installation and commands](docs/usage.md)
-
-## License and attribution
-
-Project-authored source code is licensed under the [MIT License](LICENSE). Third-party components and datasets retain their respective rights and licenses.
+Project-authored source: [MIT](LICENSE). Third-party components retain their own notices and terms.
